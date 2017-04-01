@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class LC274 {
-	// complexity o(nlogn) because use sort
+	// sort based, complexity o(nlogn) 
     public int hIndex(int[] citations) {
         Arrays.sort(citations);
         int max = 0;
@@ -20,8 +20,23 @@ public class LC274 {
         return max;
     }
     
-    // complexity o(n), not very straightforward
+    // sort based, more concise
     public int hIndex2(int[] citations){
+    	Arrays.sort(citations);
+        int len = citations.length;
+        for (int i = 0; i < len; i++){
+        	if (len <= citations[i]){
+        		return len;
+        	}
+        	else{
+        		len--;
+        	}       		
+        }
+        return 0;
+    }
+    
+    // complexity o(n), not very straightforward
+    public int hIndex3(int[] citations){
     	int len = citations.length;
     	int[] array2 = new int[len+1];
     	
@@ -45,11 +60,12 @@ public class LC274 {
     }
     
     public static void main(String[] args){
-		int[] a = {1,0,3,6,5};
+		int[] a = {1,0,4,6,5};
 		// int[] b = {2,3,4};
 		LC274 tes = new LC274();
 		System.out.println(tes.hIndex(a));
 		System.out.println(tes.hIndex2(a));
+		System.out.println(tes.hIndex3(a));
 		
 	}
 }
