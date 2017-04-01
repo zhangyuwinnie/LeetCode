@@ -14,7 +14,46 @@
 
 // Complexity : O(n)
 import java.util.*;
+import java.util.Map;
 
 public class LC350 {
-
+	public int[] intersect(int[] nums1, int[] nums2) {
+		 HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		 
+		 for (int i = 0; i< nums1.length; i++){
+			 //map.put(nums1[i], map.getOrDefault(nums1[i],0)+1);
+			 if (map.get(nums1[i]) != null){
+				 map.put(nums1[i], map.get(nums1[i])+1);
+			 }
+			 else{
+				 map.put(nums1[i],1);
+			 }
+		 }
+		 
+		 List<Integer> result = new ArrayList<Integer>();
+		 for (int i = 0; i < nums2.length; i++){
+			 if (map.get(nums2[i]) != null && map.get(nums2[i])>0){
+					result.add(nums2[i]);
+					map.put(nums2[i], map.get(nums2[i])-1);
+				 
+			 }
+		 }
+		 
+		 int[] rearr = new int[result.size()];
+		 int index = 0;
+		 for (int i : result){
+			 rearr[index++] = i;
+		 }
+		 return rearr;	        
+	}
+	
+	public static void main(String[] args){
+		int[] a = {1,2,3};
+		int[] b = {2,3,4};
+		LC350 tes = new LC350();
+		System.out.println(Arrays.toString(tes.intersect(a, b)));
+		
+	}
+	
+	
 }
