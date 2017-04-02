@@ -48,25 +48,18 @@ public class LC88 {
 	
 	// solution 2: insert from the right, (largest one) to left
 	public void merge2(int[] nums1, int m, int[] nums2, int n) {
-		int len = m+n-1;
-		int a = m-1;
-		int b = n-1;
+		int len = m+n-1, a = m-1, b = n-1;
+		// more concise
 		while (a>=0 && b >= 0){
-			if (nums1[a]>nums2[b]){
-				nums1[len--] = nums1[a--];
-			}
-			else{
-				nums1[len--] = nums2[b--];
-			}
+			nums1[len--] = (nums1[a]>nums2[b]) ? nums1[a--]:nums2[b--];
 		}
-		while (a>= 0){
-			nums1[len--] = nums1[a--];
-		}
+		// not neccessary
+		// while (a>= 0){
+		//	nums1[len--] = nums1[a--];
+		// }
 		while (b>=0){
 			nums1[len--] = nums2[b--];
-		}
-		
-		
+		}		
     }
 	
 	public static void main(String[] args){
