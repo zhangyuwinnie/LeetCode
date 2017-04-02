@@ -11,7 +11,7 @@
 import java.util.*;
 
 public class LC274 {
-	// sort based, complexity o(nlogn) 
+	// solution1: sort based, complexity o(nlogn) 
     public int hIndex(int[] citations) {
         Arrays.sort(citations);
         int max = 0;
@@ -30,7 +30,7 @@ public class LC274 {
         return max;
     }
     
-    // sort based, more concise
+    // solution2: sort based, more concise
     public int hIndex2(int[] citations){
     	Arrays.sort(citations);
         int len = citations.length;
@@ -45,7 +45,7 @@ public class LC274 {
         return 0;
     }
     
-    // complexity o(n), not very straightforward
+    // solution3: complexity o(n), not very straightforward
     public int hIndex3(int[] citations){
     	int len = citations.length;
     	int[] array2 = new int[len+1];
