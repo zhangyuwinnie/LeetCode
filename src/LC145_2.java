@@ -26,14 +26,14 @@ public class LC145_2 {
 	     Stack<TreeNode> s = new Stack<TreeNode>();
 	     s.push(root);
 	     while (!s.empty()  ){
-	    	 root = s.pop();
-	    	 result.add(0,root.val);
-	    	 if (root.left != null){
-	    		 s.push(root.left);
-	    	 }
-	    	 if(root.right != null){
-	    		 s.push(root.right);
-	    	 }
+		    	 root = s.pop();
+		    	 result.add(0,root.val);
+		    	 if (root.left != null){
+		    		 s.push(root.left);
+		    	 }
+		    	 if(root.right != null){
+		    		 s.push(root.right);
+		    	 }
 	     }
 	     return result;
 	}
