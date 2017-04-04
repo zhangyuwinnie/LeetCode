@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * Medium -  Binary Search Tree Iterator
  * Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.
@@ -5,8 +7,6 @@
  * 
  * Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.
  */
-
-import java.util.Stack;
 
 /**
  * Solution 2: separated inorder traversal 
@@ -18,12 +18,7 @@ public class LC173_2 {
     
     private Stack<TreeNode> stack; 
     
-	public static class TreeNode {
-		 int val;
-		 TreeNode left;
-		 TreeNode right;
-		 TreeNode(int x) { val = x; }
-	}
+	
     public LC173_2(TreeNode root) {
     		stack = new Stack<TreeNode>();
         while (root!= null){

@@ -9,12 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LC145_1 {
-	public class TreeNode {
-		 int val;
-		 TreeNode left;
-		 TreeNode right;
-		 TreeNode(int x) { val = x; }
-	}
 	
 	public List<Integer> postorderTraversal(TreeNode root) {
 	     List<Integer> result = new ArrayList<Integer>();

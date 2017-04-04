@@ -19,12 +19,6 @@ public class LC173 {
     
     private Queue<TreeNode> q; 
     
-	public static class TreeNode {
-		 int val;
-		 TreeNode left;
-		 TreeNode right;
-		 TreeNode(int x) { val = x; }
-	}
     public LC173(TreeNode root) {
         q = new LinkedList<TreeNode>();
         inorderTraversal(root);

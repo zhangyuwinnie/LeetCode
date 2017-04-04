@@ -11,13 +11,7 @@ import java.util.List;
 import java.util.Stack;
 
 public class LC145_2 {
-	public class TreeNode {
-		 int val;
-		 TreeNode left;
-		 TreeNode right;
-		 TreeNode(int x) { val = x; }
-	}
-	
+
 	public List<Integer> postorderTraversal(TreeNode root) {
 	     List<Integer> result = new ArrayList<Integer>();
 	     if (root == null){
@@ -39,8 +33,8 @@ public class LC145_2 {
 	}
 	public static void main(String[] args){
 		LC145_2 test = new LC145_2();
-		TreeNode root = test.new TreeNode(1);
-		TreeNode leave = test.new TreeNode(2);
+		TreeNode root = new TreeNode(1);
+		TreeNode leave = new TreeNode(2);
 		root.left = leave;
 		List<Integer> li = test.postorderTraversal(root);
 		for (int i : li){
