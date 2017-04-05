@@ -7,16 +7,7 @@
  */
 
 public class LC141 {
-	
-	class ListNode{
-		int val;
-		ListNode next;
-		ListNode(int x){
-			val = x;
-			next = null;
-		}
-	}
-	
+
 	public boolean hasCycle(ListNode head) {
         if (head == null){
        	 	return false;
@@ -28,5 +19,9 @@ public class LC141 {
        	 	
         }
         return head.next != null;
-   }
+    }
+	
+	public static void main (String[] args){
+		
+	}
 }
