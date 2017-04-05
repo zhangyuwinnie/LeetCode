@@ -27,7 +27,7 @@ public class LC142 {
 		}       
         return null;
     }
-	// solution2
+	// solution2: 用快慢指针判断是否有cycle，如有一个指针在始端，一个在meet处，每次各走一步，相遇处为cycle起点
 	public ListNode detectCycle2(ListNode head){
 		if (head == null){
 			return null;
@@ -49,8 +49,6 @@ public class LC142 {
 			slow = slow.next;
 			quick = quick.next;
 		}
-		
-		
 		return slow;
 	}
 	
