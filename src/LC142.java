@@ -11,7 +11,12 @@
 import java.util.Set;
 import java.util.HashSet;
 public class LC142 {
-	//solution1
+	/**
+	 * solution1：hash table
+	 * 将node地址存入hash table，然后查重
+	 * @param head
+	 * @return
+	 */
 	public ListNode detectCycle(ListNode head) {
 		Set<ListNode> s = new HashSet<ListNode>();
 		if (head ==null) return null;
@@ -27,6 +32,16 @@ public class LC142 {
 		}       
         return null;
     }
+	/**
+	 * solution2: 快慢指针
+	 * 用快慢指针判断是否有cycle，如有一个指针在始端，一个在meet处，每次各走一步，相遇处为cycle起点
+	 * note: 起点到cycle起点距离s，cycle周长r， 第一次walk，速度差为1，设经过k步 2k-k = r，所以k=r，如果一个
+	 * 在起点，一个在首次相遇处，两点相差距离k（因为经过了k步），之后都以1的速度向前，在k处的点有k-s的长度是在圈上
+	 * 的，所以距离圈的起点为r-（k-s），因为r=k，所以距离就是s，所以起点的点走过s正好与出发自k处的点，在圈的起始
+	 * 位置相遇
+	 * @param head
+	 * @return
+	 */
 	// solution2: 用快慢指针判断是否有cycle，如有一个指针在始端，一个在meet处，每次各走一步，相遇处为cycle起点
 	public ListNode detectCycle2(ListNode head){
 		if (head == null){
