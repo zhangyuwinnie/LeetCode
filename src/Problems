@@ -1,0 +1,82 @@
+350.Intersection of Two Arrays II - Easy 
+Given two arrays, write a function to compute their intersection.
+Example:
+Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
+Note:
+Each element in the result should appear as many times as it shows in both arrays.
+The result can be in any order.
+Follow up:
+What if the given array is already sorted? How would you optimize your algorithm?
+What if nums1's size is small compared to nums2's size? Which algorithm is better?
+What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+
+83.Remove Duplicates from Sorted List   
+Given a sorted linked list, delete all duplicates such that each element appear only once.
+For example,
+Given 1->1->2, return 1->2.
+Given 1->1->2->3->3, return 1->2->3.
+
+88.Merge Sorted Array   
+Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+Note:
+You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.
+
+141. Linked List Cycle I - Easy
+Given a linked list, determine if it has a cycle in it.
+Follow up:
+Can you solve it without using extra space?
+
+142.Linked List Cycle II - Easy
+Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+Note: Do not modify the linked list.
+Follow up:
+Can you solve it without using extra space?
+
+206.Reverse Linked List - Easy
+Reverse a singly linked list.
+
+273.Delete Node in a Linked List - Easy
+Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
+Supposed the linked list is 1 -> 2 -> 3 -> 4 and you are given the third node with value 3, the linked list should become 1 -> 2 -> 4 after calling your function.
+ 
+203.Remove Linked List Elements - Easy
+Remove all elements from a linked list of integers that have value val.
+Example
+Given: 1 --> 2 --> 6 --> 3 --> 4 --> 5 --> 6, val = 6
+Return: 1 --> 2 --> 3 --> 4 --> 5
+
+144.Binary Tree Preorder Traversal - Medium   
+Given a binary tree, return the preorder traversal of its nodes' values.
+For example:
+Given binary tree {1,#,2,3},return [1,2,3].
+
+145.Binary Tree Postorder Traversal- Hard
+Given a binary tree, return the postorder traversal of its nodes' values.
+For example:
+Given binary tree {1,#,2,3},return [3,2,1].
+Note: Recursive solution is trivial, could you do it iteratively?
+
+173.Binary Search Tree Iterator - Medium  
+Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.
+Calling next() will return the next smallest number in the BST.
+Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.
+ 
+274. H-Index - Medium   
+Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.
+According to the definition of h-index on Wikipedia: "A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each."
+For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, his h-index is 3.
+Note: If there are several possible values for h, the maximum one is taken as the h-index.
+
+211. Add and Search Word - Data structure design - Medium 
+Design a data structure that supports the following two operations:
+void addWord(word)
+bool search(word)
+search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter.
+For example:
+addWord("bad")
+addWord("dad")
+addWord("mad")
+search("pad") -> false
+search("bad") -> true
+search(".ad") -> true
+search("b..") -> true
