@@ -2,7 +2,9 @@
 // Given a binary tree, return the postorder traversal of its nodes' values.
 
 // For example:
-// Given binary tree {1,#,2,3},
+// Given binary tree {1,#,2,3},return [3,2,1].
+
+// Note: Recursive solution is trivial, could you do it iteratively?
 
 // iterative solution, reverse of postorder is root, right, left, which is 
 // similiar to preorder, when add val , insert to index 0  
