@@ -8,7 +8,7 @@
  */
 
 public class LC141 {
-	//solution1
+	//solution1：思路不是很清晰
 	public boolean hasCycle(ListNode head) {
         if (head == null){
        	 	return false;
@@ -21,7 +21,7 @@ public class LC141 {
         }
         return head.next != null;
     }
-	// solution2
+	// solution2: 快慢指针
 	public boolean hasCycle2(ListNode head){
 		if (head == null){
 			return false;
