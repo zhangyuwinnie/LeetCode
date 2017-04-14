@@ -118,6 +118,21 @@ Note: 这题用recursive还是比较简单，但要注意将左枝先保存起�
 Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
 思路：recursively取中间的数作为node，(mid, start, end)，注意一下start < end
  
+101.Symmetric Tree
+Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+For example, this binary tree [1,2,2,3,4,4,3] is symmetric:
+    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3
+But the following [1,2,2,null,3,null,3] is not:
+    1
+   / \
+  2   2
+   \   \
+   3    3
+ 
 199.Binary Tree Right Side View
 Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
 For example:
@@ -133,6 +148,11 @@ You should return [1, 3, 4].
 但有时候中间比外边deep，也需要extract出来，所以先right，再left,left支的depth他超过已有array size时可以加入元素
 Note：先右再左，用array size作为判断标准，加一个depth变量（与array size进行比较）
 
+TopView of Binary Tree
+思路一： 借鉴rightSideView的想法，分别找出leftview,rightview, 为了避免侧面看得到但上面
+看不到,又引入了一个叫column的list，将已有的column记录其中，要是前面出现的该column，就不增加
+这个方法不是很好，建solution2
+思路二： BFS , 增加一个变量指示node所在column，将改变量打包进queue
  
 274. H-Index - Medium   
 Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.
@@ -159,3 +179,13 @@ Rotate an array of n elements to the right by k steps.
 For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].
 Note:
 Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
+
+338. Counting Bits
+Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1's in their binary representation and return them as an array.
+Example:
+For num = 5 you should return [0,1,1,2,1,2].
+Follow up:
+It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?
+Space complexity should be O(n).
+Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.
+思路1：dynamic programming,从左往右，f(n) = f(n/2) + n%2;
