@@ -149,6 +149,21 @@ Given a binary tree, find its minimum depth.
 The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 Note:单边null时，min不是null的那边，而是非null一边的结果
 
+543.
+Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+Example:
+Given a binary tree 
+          1
+         / \
+        2   3
+       / \     
+      4   5    
+Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3]。
+思路:
+solution1: left+right,遍历 
+solution2(不可行): 2bfs not working， 主要因为TreeNode是单向的，第二次bfs的tree形不成
+
+
 199.Binary Tree Right Side View
 Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
 For example:
