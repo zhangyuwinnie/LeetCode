@@ -163,6 +163,7 @@ Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3]。
 solution1: left+right,遍历 
 solution2(不可行): 2bfs not working， 主要因为TreeNode是单向的，第二次bfs的tree形不成
 
+104.Maximum Depth of Binary Tree
 
 199.Binary Tree Right Side View
 Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
