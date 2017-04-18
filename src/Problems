@@ -63,6 +63,7 @@ Your code should preferably run in O(n) time and use only O(1) memory.
 234. Palindrome Linked List - Easy
 Given a singly linked list, determine if it is a palindrome. Follow up: Could you do it in O(n) time and O(1) space?
 
+############# TREE #################
 144.Binary Tree Preorder Traversal - Medium   
 Given a binary tree, return the preorder traversal of its nodes' values.
 For example:
@@ -149,7 +150,7 @@ Given a binary tree, find its minimum depth.
 The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 Note:单边null时，min不是null的那边，而是非null一边的结果
 
-543.
+543.Diameter of Binary Tree
 Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
 Example:
 Given a binary tree 
@@ -246,5 +247,17 @@ max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than
 Example 2:
 Input: [7, 6, 4, 3, 1]
 Output: 0
-
 In this case, no transaction is done, i.e. max profit = 0.
+
+############# DP #################
+139. Word Break
+Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words. You may assume the dictionary does not contain duplicate words.
+For example, given
+s = "leetcode",
+dict = ["leet", "code"].
+Return true because "leetcode" can be segmented as "leet code".
+UPDATE (2017/1/4):
+The wordDict parameter had been changed to a list of strings (instead of a set of strings). Please reload the code definition to get the latest changes.
+思路：建一个boolean array，bool[i] 为TRUE时s.substring(0,i)可以分解
+解法一：对于bool[i],loop through dict,如果前面部分已有bool为TRUE，后面部分正好是一个单词，则为TRUE
+解法二：当dict为set时可以用contains的方法，对于bool[i],loop through dict,如果有 bool[j] == true && s.substring(i,j)在dict set中
