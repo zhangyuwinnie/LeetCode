@@ -261,3 +261,18 @@ The wordDict parameter had been changed to a list of strings (instead of a set o
 思路：建一个boolean array，bool[i] 为TRUE时s.substring(0,i)可以分解
 解法一：对于bool[i],loop through dict,如果前面部分已有bool为TRUE，后面部分正好是一个单词，则为TRUE
 解法二：当dict为set时可以用contains的方法，对于bool[i],loop through dict,如果有 bool[j] == true && s.substring(i,j)在dict set中
+
+140. Word Break2
+Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. You may assume the dictionary does not contain duplicate words.
+Return all such possible sentences.
+For example, given
+s = "catsanddog",
+dict = ["cat", "cats", "and", "sand", "dog"].
+A solution is ["cats and dog", "cat sand dog"].
+UPDATE (2017/1/4):
+The wordDict parameter had been changed to a list of strings (instead of a set of strings). Please reload the code definition to get the latest changes.
+思路：Top down DP,loop through dict(因为不是set，不能用contains),将string最后部分和每个词典中单词匹配，匹配上后
+将string以该店切分，总结果为前面string对应的List结果的每个string加上最后该单词。至于前面string的结果就可以通过recursive求得
+Note:1.Base case,string不断切分下去总会有len==0的时候，将“”作为其返回结果
+     2.用HashMap保存中间结果<String, List<String>>，否则时间复杂度太大
+     3.不用考虑是否可分割的问题，不不能分割，会自动返回空list
