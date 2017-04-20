@@ -8,7 +8,7 @@ public class LC139 {
         if (s.length() == 0) return false;
         for (int i = 0; i<s.length(); i++){
             for (String str : wordDict){
-                if (str.length() < i+1){
+                if (str.length() <= i+1){
                     if (str.equals(s.substring(i-str.length()+1,i+1)) && bool[i-str.length()+1]){                   
                     		bool[i+1] = true;
                     		break;
@@ -34,6 +34,5 @@ public class LC139 {
     		List<String> dic = Arrays.asList(arr);
     		LC139 test = new LC139();
     		System.out.println(test.wordBreak(s, dic));
-    		
     }
 }
