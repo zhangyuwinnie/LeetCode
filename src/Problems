@@ -290,3 +290,14 @@ The wordDict parameter had been changed to a list of strings (instead of a set o
 Note:1.Base case,string不断切分下去总会有len==0的时候，将“”作为其返回结果
      2.用HashMap保存中间结果<String, List<String>>，否则时间复杂度太大
      3.不用考虑是否可分割的问题，不不能分割，会自动返回空list
+
+WordBreakIII:基于LC139，LC140， 要求改为：当字符串可分解时，返回任意一种分解结果
+思路：基于LC139基础上，从DP构建返回结果，故复杂度为O(n^2)
+还有单纯recursive的方法，但复杂度为O(2^n)
+
+320.Write a function to generate the generalized abbreviations of a word.
+Example: Given word = "word", return the following list (order does not matter):
+["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", >"1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
+思路：DFS/backtracking
+解法一：分为3部分，字符开头(0-len)+数字段(1-end)+subproblem(要注意单拎出来第一个字符，可以防止联系两个数字连在一起)
+解法二：每个pos分为保留不保留两种处理，然后pos+1，处理到结尾，输出结果
