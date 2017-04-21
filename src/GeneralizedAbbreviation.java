@@ -20,7 +20,6 @@ public class GeneralizedAbbreviation {
 			// 连续跟着j个数字，j至少为1，否则等同于i+1个字符
 			for (int j = 1; j <= len-i ; j++){ // !!! i=0时，a是空字符串，j可以取到len-i
 				String b = String.valueOf(j);
-				
 				// 剩余部分又是一个sub问题，但要注意必须以字母开头，所以先把head提取出来
 				if (i+j<len){ //如果等于len，剩余部分为null
 					String head = word.substring(i+j,i+j+1);
@@ -62,6 +61,7 @@ public class GeneralizedAbbreviation {
 				sb.append(count);
 			}
 			result.add(sb.toString());
+			
 			System.out.println(result);
 			
 		}
@@ -75,7 +75,8 @@ public class GeneralizedAbbreviation {
 			sb.append(word.substring(pos,pos+1)); //!!!
 			dfs2(word, pos+1, 0, sb, result);
 		}
-		sb.setLength(sbOriginSize); //!!!  ?
+		sb.setLength(sbOriginSize);; //!!!  设想树结构的trace，一个分叉完成后，要退回到上一层parent，因为sb分叉是在parent的sb基础上append的，回到parent时
+		                       //只需要长度变回parent的长度就可以了
 	}
 
 	public static void main(String[] args){
