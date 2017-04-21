@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Arrays;
 public class WordBreakIII {
 	//solution1:不太简洁
-	private String result = "";
     public String wordBreak(String s, List<String> wordDict) {  
     		int len = s.length();
     		String result = "";
@@ -48,7 +47,7 @@ public class WordBreakIII {
     
     
     public static void main ( String[] args){
-    		String s = "cattanddog";
+    		String s = "catanddog";
 		String[] arr = {"cat", "cats", "and", "sand", "dog"};
 		String s1 = "leetcode";
 		String[] arr1 = {"leet","code"};
