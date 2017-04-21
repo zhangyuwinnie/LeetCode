@@ -178,6 +178,20 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
          3   5
 For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another example is LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
 
+236.Lowest Common Ancestor of a Binary Tree
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
+        _______3______
+       /              \
+    ___5__          ___1__
+   /      \        /      \
+   6      _2       0       8
+         /  \
+         7   4
+For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another example is LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+解法：借用ListNode的LC160的想法，先构建parent信息，对应得存入HashMap,然后将p的各级parent提取出存在HashSet
+里，然后逐个提取q的parent信息，和p的parent集比较，找出一样的
+
 116.Populating Next Right Pointers in Each Node
 Given a binary tree
     struct TreeLinkNode {
@@ -205,6 +219,8 @@ Given BST [1,null,2,2],
     /
    2
 return [2].
+
+
 
 199.Binary Tree Right Side View
 Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
