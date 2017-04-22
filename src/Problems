@@ -329,3 +329,9 @@ Example: Given word = "word", return the following list (order does not matter):
 思路：DFS/backtracking
 解法一：分为3部分，字符开头(0-len)+数字段(1-end)+subproblem(要注意单拎出来第一个字符，可以防止联系两个数字连在一起)
 解法二：每个pos分为保留不保留两种处理，然后pos+1，处理到结尾，输出结果
+
+78. Subsets I
+Given a set of distinct integers, nums, return all possible subsets.
+Note: The solution set must not contain duplicate subsets.
+解法一：recursive法，n个元素的结果为n-1个元素的结果加上((n-1)个元素结果+第n个元素)
+解法二：DFS
