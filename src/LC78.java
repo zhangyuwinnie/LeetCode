@@ -25,26 +25,24 @@ public class LC78 {
         return result;    
     }
     // solution2: DFS, 思路参看http://www.cnblogs.com/TenosDoIt/p/3451902.html
-    public List<List<Integer>> subsets2(int[] S) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-       
-        if(S.length == 0){
-            return result;
-        }
-        
-        Arrays.sort(S);
-        dfs(S, 0, new ArrayList<Integer>(), result);
+    public List<List<Integer>> subsets2(int[] nums) {
+    		List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if (nums.length==0) return result;
+        dfs(nums, new ArrayList<Integer>(), 0,result);
         return result;
     }
 
-    public void dfs(int[] s, int index, List<Integer> path, List<List<Integer>> result){
-        result.add(new ArrayList<Integer>(path));
-        
-        for(int i = index; i < s.length; i++){
-            path.add(s[i]);
-            dfs(s, i+1, path, result);
-            path.remove(path.size()-1);
+    public void dfs(int[] nums, List<Integer> curr, int start, List<List<Integer>> result){
+    		// 把之前curr里的list加入result
+        result.add(new ArrayList<Integer>(curr)); //！！！不能直接curr，后面curr变了也会变
+        // 在当前节点往下搜索,通过start不停加1实现，但每个start相当于一个root，通过带出for loop来形成分叉，
+        // 通过curr.remove回到root，再走别的分叉
+        for (int i = start; i<nums.length; i++){
+        		curr.add(nums[i]);
+        		dfs(nums, curr, i+1, result); // !!!这里的position变量应该是i+1,而不是start+1
+        		curr.remove(curr.size()-1);
         }
+        
     }
     public static void main(String[] args){
     		int[] arr = {1,2,3};
