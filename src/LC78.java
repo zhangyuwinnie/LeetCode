@@ -28,6 +28,7 @@ public class LC78 {
     public List<List<Integer>> subsets2(int[] nums) {
     		List<List<Integer>> result = new ArrayList<List<Integer>>();
         if (nums.length==0) return result;
+        Arrays.sort(nums);
         dfs(nums, new ArrayList<Integer>(), 0,result);
         return result;
     }

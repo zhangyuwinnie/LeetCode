@@ -335,3 +335,8 @@ Given a set of distinct integers, nums, return all possible subsets.
 Note: The solution set must not contain duplicate subsets.
 解法一：recursive法，n个元素的结果为n-1个元素的结果加上((n-1)个元素结果+第n个元素)
 解法二：DFS
+
+90. Subsets II
+Given a collection of integers that might contain duplicates, nums, return all possible subsets.
+Note: The solution set must not contain duplicate subsets.
+思路：主要要注意去重，只取相同数中第一个作为下一个
