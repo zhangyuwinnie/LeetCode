@@ -323,7 +323,25 @@ WordBreakIII:基于LC139，LC140， 要求改为：当字符串可分解时，�
 思路：基于LC139基础上，从DP构建返回结果，故复杂度为O(n^2)
 还有单纯recursive的方法，但复杂度为O(2^n)
 
-320.Write a function to generate the generalized abbreviations of a word.
+96.Unique Binary Search Trees
+Given n, how many structurally unique BST's (binary search trees) that store values 1...n?
+For example,
+Given n = 3, there are a total of 5 unique BST's.
+   1         3     3      2      1
+    \       /     /      / \      \
+     3     2     1      1   3      2
+    /     /       \                 \
+   2     1         2                 3
+思路：本题结果等于分别以1,2,..n为root的BST数量之和，而怎么计算比如以i为root的BST数量之和呢？可以这么考虑
+i的左枝有多少种可能，右支有多少种可能，因为左支和右支是没有交集的，所以总共可能数是左边可能情况数乘以右边
+用数学式来表示，比如G(n)表示1...n个数组成的unique BST个数，F(i,n)表示1...n个数组成的BST中，以i为root
+的BST数，则F(i,n) = G(i-1)*G(n-i), G(i-1)好理解，因为iroot左边是n个数中比i小的数即1..i-1,他们总共
+G(i-1)种，而剩下的i+1,i+2,..n可组成的BST数是等同于1,2,..n-i组成的BST数(因为个数一样，这是主要trick)
+
+####################### DFS ######################
+
+320. Generalized Abbreviation
+Write a function to generate the generalized abbreviations of a word.
 Example: Given word = "word", return the following list (order does not matter):
 ["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", >"1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
 思路：DFS/backtracking
