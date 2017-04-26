@@ -9,7 +9,7 @@ public class LC94 {
     			return result;
     		}
     		Stack<TreeNode> s = new Stack<>();
-    		TreeNode curr = root;
+    		TreeNode curr = root;// 不用先push root
     		while (curr != null || !s.isEmpty()){
     			while (curr != null){
     				s.push(curr);
