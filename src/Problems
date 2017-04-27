@@ -1,3 +1,7 @@
+28. Implement strStr()
+Implement strStr().
+Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
 350.Intersection of Two Arrays II - Easy 
 Given two arrays, write a function to compute their intersection.
 Example:
@@ -400,3 +404,27 @@ Note: The solution set must not contain duplicate subsets.
 Given a collection of integers that might contain duplicates, nums, return all possible subsets.
 Note: The solution set must not contain duplicate subsets.
 思路：主要要注意去重，只取相同数中第一个作为下一个
+
+46. Permutations
+Given a collection of distinct numbers, return all possible permutations.
+For example,
+[1,2,3] have the following permutations:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
+思路： 类似subset，但要注意加curr时加个判断，而且要return，curr add时也要加判断
+
+47. Permutations II
+Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+For example,
+[1,1,2] have the following unique permutations:
+[
+  [1,1,2],
+  [1,2,1],
+  [2,1,1]
+]
