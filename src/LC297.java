@@ -20,11 +20,10 @@ public class LC297 {
     		for (int i = 0; i < queue.size(); i++){
     			TreeNode node = queue.get(i);
     			// different from classic bfs, 第一次的null要放进去,第二次的不妨
-    			if (node == null){
-    			   continue;
+    			if (node != null){
+    			    queue.add(node.left);
+    			    queue.add(node.right);
     			}
-    			queue.add(node.left);
-    			queue.add(node.right);
     			
     		}
     		
@@ -36,7 +35,7 @@ public class LC297 {
     		StringBuffer sb = new StringBuffer();
     		sb.append("{");
     		sb.append(queue.get(0).val);
-    		for (int i = 1; i < queue.size(); i++){
+    		for (int i = 1; i < queue.size(); i++){ // !!!start 要从1开始
     			if (queue.get(i) == null){
     				sb.append(",#");
     			} else {
