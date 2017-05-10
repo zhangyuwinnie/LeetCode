@@ -335,11 +335,31 @@ Visually, the graph looks like the following:
          \_/
 思路：先用bfs得到点集，克隆顶点(old->new map)，通过old的neighbor克隆new 的neighbor
 
+Given a undirected graph, a node and a target, return the nearest node to given node which value of it is target, return NULL if you can't find.
+There is a mapping store the nodes' values in the given parameters.
+2------3  5
+ \     |  | 
+  \    |  |
+   \   |  |
+    \  |  |
+      1 --4
+Give a node 1, target is 50
+there a hash named values which is [3,4,10,50,50], represent:
+Value of node 1 is 3
+Value of node 2 is 4
+Value of node 3 is 10
+Value of node 4 is 50
+Value of node 5 is 50
+Return node 4
+思路： BFS
+
 274. H-Index - Medium   
 Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.
 According to the definition of h-index on Wikipedia: "A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each."
 For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, his h-index is 3.
 Note: If there are several possible values for h, the maximum one is taken as the h-index.
+
+
 
 211. Add and Search Word - Data structure design - Medium 
 Design a data structure that supports the following two operations:
