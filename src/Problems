@@ -335,6 +335,14 @@ Visually, the graph looks like the following:
          \_/
 思路：先用bfs得到点集，克隆顶点(old->new map)，通过old的neighbor克隆new 的neighbor
 
+Topological Sorting
+Given an directed graph, a topological order of the graph nodes is defined as follow:
+For each directed edge A -> B in graph, A must before B in the order list.
+The first node in the order can be any node in the graph with no nodes direct to it.
+Find any topological order for the given graph.
+思路：HashMap记录各点的indegree， BFS，依次移除indegree为0 的点
+
+Search Graph Nodes
 Given a undirected graph, a node and a target, return the nearest node to given node which value of it is target, return NULL if you can't find.
 There is a mapping store the nodes' values in the given parameters.
 2------3  5
