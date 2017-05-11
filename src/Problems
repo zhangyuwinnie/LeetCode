@@ -361,6 +361,16 @@ Value of node 5 is 50
 Return node 4
 思路： BFS
 
+200. Number of Islands
+Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+Example 1:
+11110
+11010
+11000
+00000
+Answer: 1
+思路：BFS，每找到一个1，将其旁边一层的1变为0，依次下去，把这个island都变成0，再找下一个island
+
 274. H-Index - Medium   
 Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.
 According to the definition of h-index on Wikipedia: "A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each."
