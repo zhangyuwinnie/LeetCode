@@ -361,6 +361,17 @@ Value of node 5 is 50
 Return node 4
 思路： BFS
 
+Zombie In Matrix
+Given a 2D grid, each cell is either a wall 2, a zombie 1 or people 0 (the number zero, one, two).Zombies can turn the nearest people(up/down/left/right) into zombies every day, but can not through wall. How long will it take to turn all people into zombies? Return -1 if can not turn all people into zombies.
+Example
+Given a matrix:
+0 1 2 0 0
+1 0 0 2 1
+0 1 0 0 0
+return 2
+思路： BFS，将Zombie作为start，放入queue，层级遍历，每天一层，将Zombie周边的人变成Zombie，直到people为0
+Note：0，1，2用常理PEOPLE等定义
+
 200. Number of Islands
 Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
 Example 1:
@@ -543,3 +554,17 @@ For example,
   [2,1,1]
 ]
 
+39. Combination Sum
+Given a set of candidate numbers (C) (without duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+The same repeated number may be chosen from C unlimited number of times.
+Note:
+All numbers (including target) will be positive integers.
+The solution set must not contain duplicate combinations.
+For example, given candidate set [2, 3, 6, 7] and target 7, 
+A solution set is: 
+[
+  [7],
+  [2, 2, 3]
+] 
+思路：DFS，类似suset,不同点在于1）元素可以重复（选数的时候，下一个还是从i开始，而不是i+1）
+2）有target限制 3）一开始input可能就有重复（所以需要提前sort并remove duplicates）
