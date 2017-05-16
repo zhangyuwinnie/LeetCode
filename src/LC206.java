@@ -9,7 +9,7 @@ public class LC206 {
 		ListNode next;
 		ListNode(int x){	val = x;}
 	}
-	
+	// 法一
     public ListNode reverseList(ListNode head) {
     		if (head == null) return null;
         ListNode p = head;
@@ -24,7 +24,23 @@ public class LC206 {
         p.next = pre; // don't forget last element
         return p;        
     }
-    
+    // 法二
+    public ListNode reverse(ListNode head) {
+        // write your code here
+        if (head == null){
+            return null;
+        }
+        // ListNode dummy = new ListNode(0); !!!
+        ListNode prev = null;
+        ListNode curt = head;
+        while (curt != null){
+            ListNode temp = curt.next;
+            curt.next = prev;
+            prev = curt;
+            curt = temp;
+        }
+        return prev; //!!!
+    }
     public static void main (String[] args){
     		LC206 test = new LC206();
     		ListNode head = test.new ListNode(1);
