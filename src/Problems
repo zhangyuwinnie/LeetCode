@@ -646,6 +646,8 @@ cache.get(3);       // returns 3
 cache.get(4);       // returns 4
 
 Ugly Number II
+Ugly number is a number that only have factors 2, 3 and 5.
+Design an algorithm to find the nth ugly number. The first 10 ugly numbers are 1, 2, 3, 4, 5, 6, 8, 9, 10, 12...
 思路：
 Heap(Priority queue) + HashSet
 每次取出(retrieve and remove)heap中最小值，分别乘以2，3，5，如果heap中不存在，就加入heap
@@ -655,3 +657,14 @@ Note:
 数据类型，int不够，要用Long(Long.valueOf() , number.intValue())
 Queue和hashSet同时add
 对数字1的处理，不放入队列中
+
+Top k Largest Numbers II
+Implement a data structure, provide two interfaces:
+add(number). Add a new number in the data structure.
+topk(). Return the top k largest numbers in this data structure. k is given when we create the data structure.
+思路：
+用minheap,如果超出k个，poll出最小元素
+Note:
+private variables,在开头申明，在构造函数中初始化
+取出queue中元素，用iterator(Iterator<Integer> it = q.iterator(); it.hasNext(), (Integer) it.next())
+Collections.sort()实现list的逆序排序( Collections.sort(result, Collections.reverseOrder());)
