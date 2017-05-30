@@ -644,3 +644,14 @@ cache.put(4, 4);    // evicts key 1
 cache.get(1);       // returns -1 (not found)
 cache.get(3);       // returns 3
 cache.get(4);       // returns 4
+
+Ugly Number II
+思路：
+Heap(Priority queue) + HashSet
+每次取出(retrieve and remove)heap中最小值，分别乘以2，3，5，如果heap中不存在，就加入heap
+错误：
+每次取出heap头，然后分别乘以2，3，5，选取最小的重新加入queue，比如heap头为3，加入3*2，但3被拿掉了，其实3*3也要加入heap的，但无法实现了
+Note:
+数据类型，int不够，要用Long(Long.valueOf() , number.intValue())
+Queue和hashSet同时add
+对数字1的处理，不放入队列中
