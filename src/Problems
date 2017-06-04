@@ -668,3 +668,10 @@ Note:
 private variables,在开头申明，在构造函数中初始化
 取出queue中元素，用iterator(Iterator<Integer> it = q.iterator(); it.hasNext(), (Integer) it.next())
 Collections.sort()实现list的逆序排序( Collections.sort(result, Collections.reverseOrder());)
+
+Merge K sorted Lists
+Merge k sorted linked lists and return it as one sorted list.
+Analyze and describe its complexity.
+思路：
+法一： divide and conquer
+法二： heap
