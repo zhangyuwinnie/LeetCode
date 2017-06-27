@@ -220,6 +220,19 @@ For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another exa
 解法：借用ListNode的LC160的想法，先构建parent信息，对应得存入HashMap,然后将p的各级parent提取出存在HashSet
 里，然后逐个提取q的parent信息，和p的parent集比较，找出一样的
 
+Reverse Words in a String
+Given an input string, reverse the string word by word.
+For example,
+Given s = "the sky is blue",
+return "blue is sky the".
+Clarification
+What constitutes a word?
+A sequence of non-space characters constitutes a word.
+Could the input string contain leading or trailing spaces?
+Yes. However, your reversed string should not contain leading or trailing spaces.
+How about multiple spaces between two words?
+Reduce them to a single space in the reversed string.
+
 116.Populating Next Right Pointers in Each Node
 Given a binary tree
     struct TreeLinkNode {

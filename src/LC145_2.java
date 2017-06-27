@@ -17,7 +17,7 @@ public class LC145_2 {
 	public List<Integer> postorderTraversal(TreeNode root) {
 	     List<Integer> result = new ArrayList<Integer>();
 	     if (root == null){
-	    	 return result;
+	    	 	return result;
 	     }
 	     Stack<TreeNode> s = new Stack<TreeNode>();
 	     s.push(root);
@@ -36,8 +36,12 @@ public class LC145_2 {
 	public static void main(String[] args){
 		LC145_2 test = new LC145_2();
 		TreeNode root = new TreeNode(1);
-		TreeNode leave = new TreeNode(2);
-		root.left = leave;
+		TreeNode leave1 = new TreeNode(1);
+		TreeNode leave2 = new TreeNode(2);
+		TreeNode leave3 = new TreeNode(3);
+		root.left = leave1;
+		root.right = leave2;
+		leave2.left = leave3;
 		List<Integer> li = test.postorderTraversal(root);
 		for (int i : li){
 			System.out.print(i);
