@@ -220,6 +220,10 @@ For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another exa
 解法：借用ListNode的LC160的想法，先构建parent信息，对应得存入HashMap,然后将p的各级parent提取出存在HashSet
 里，然后逐个提取q的parent信息，和p的parent集比较，找出一样的
 
+Lowest Common Ancestor 
+Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.
+The lowest common ancestor is the node with largest depth which is the ancestor of both nodes.
+
 Partition Array
 Given an array nums of integers and an int k, partition the array (i.e move the elements in "nums") such that:
 All elements < k are moved to the left
