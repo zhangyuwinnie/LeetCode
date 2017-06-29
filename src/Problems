@@ -4,6 +4,22 @@ Example
 Given num1 = "123", num2 = "45"
 return "168"
 
+Two Strings Are Anagrams
+Write a method anagram(s,t) to decide if two strings are anagrams or not.
+Clarification
+What is Anagram?
+- Two strings are anagram if they can be the same after change the order of characters.
+Example
+Given s = "abcd", t = "dcab", return true.
+Given s = "ab", t = "ab", return true.
+Given s = "ab", t = "ac", return false.
+
+Longest Substring with At Most K Distinct Characters
+Given a string s, find the length of the longest substring T that contains at most k distinct characters.
+Example
+For example, Given s = "eceba", k = 3,
+T is "eceb" which its length is 4.
+
 28. Implement strStr()
 Implement strStr().
 Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.

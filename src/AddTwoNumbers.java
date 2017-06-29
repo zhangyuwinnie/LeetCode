@@ -8,38 +8,26 @@ public class AddTwoNumbers {
     public ListNode addLists(ListNode l1, ListNode l2) {
         // write your code here
         // get l1
-        if (l1 == null && l2 == null){
-            return new ListNode(0);
-        }
-        ListNode dummy = new ListNode(0);
-        ListNode point = dummy;
+    		ListNode dummy = new ListNode(0);
+        ListNode result = dummy;
         int carry = 0;
-        while (l1 != null && l2 != null){
-            int curt = l1.val + l2.val + carry;
-            point.next = new ListNode(curt % 10);
-            carry = curt / 10;
-            point = point.next;
-            l1 = l1.next;
-            l2 = l2.next;
+        while (l1 != null || l2 != null){
+            if (l1 != null){
+                carry += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null){
+                carry += l2.val;
+                l2 = l2.next;
+            }
+            result.next = new ListNode(carry % 10);
+            carry = carry / 10;
+            result = result.next;
         }
-        while (l1 != null){
-            int curt = carry + l1.val;
-            point.next = new ListNode(curt % 10);
-            carry = curt /10;
-            point = point.next;
-            l1 = l1.next;
+        if (carry > 0){
+            result.next = new ListNode(carry);
         }
-        while (l2 != null){
-            int curt = carry + l2.val;
-            point.next = new ListNode(curt % 10);
-            carry = curt /10;
-            point = point.next;
-            l2 = l2.next;
-        }
-        if (carry != 0){
-            point.next = new ListNode(carry);
-        }
-        return dummy.next;        
+        return dummy.next;    
     }
 }
 // Compile:
