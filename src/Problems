@@ -14,6 +14,12 @@ Given s = "abcd", t = "dcab", return true.
 Given s = "ab", t = "ab", return true.
 Given s = "ab", t = "ac", return false.
 
+Anagrams
+Given an array of strings, return all groups of strings that are anagrams.
+Example
+Given ["lint", "intl", "inlt", "code"], return ["lint", "inlt", "intl"].
+Given ["ab", "ba", "cd", "dc", "e"], return ["ab", "ba", "cd", "dc"].
+
 Longest Substring with At Most K Distinct Characters
 Given a string s, find the length of the longest substring T that contains at most k distinct characters.
 Example
