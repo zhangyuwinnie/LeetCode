@@ -856,6 +856,11 @@ Example
 Given encoded message 12, it could be decoded as AB (1 2) or L (12).
 The number of ways decoding 12 is 2.
 
+Unique Paths I
+A robot is located at the top-left corner of a m x n grid.
+The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid.
+How many possible unique paths are there?
+
 *******************************************************
 **             Topic 10: Bit Manipulation            **
 *******************************************************
