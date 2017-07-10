@@ -32,6 +32,22 @@ Example
 For example, Given s = "eceba", k = 3,
 T is "eceb" which its length is 4.
 
+Top K Frequent Words (Map Reduce)
+Find top k frequent words with map reduce framework.
+The mapper's key is the document id, value is the content of the document, words in a document are split by spaces.
+For reducer, the output should be at most k key-value pairs, which are the top k words and their frequencies in this reducer. The judge will take care about how to merge different reducers' results to get the global top k frequent words, so you don't need to care about that part.
+The k is given in the constructor of TopK class.
+Example
+Given document A =
+lintcode is the best online judge
+I love lintcode
+and document B =
+lintcode is an online judge for coding interview
+you can test your code online at lintcode
+The top 2 words and their frequencies should be
+lintcode, 4
+online, 3
+
 Connecting Graph
 Given n nodes in a graph labeled from 1 to n. There is no edges in the graph at beginning.
 You need to support the following method:
@@ -463,6 +479,8 @@ Value of node 5 is 50
 Return node 4
 思路： BFS
 
+
+
 Zombie In Matrix
 Given a 2D grid, each cell is either a wall 2, a zombie 1 or people 0 (the number zero, one, two).Zombies can turn the nearest people(up/down/left/right) into zombies every day, but can not through wall. How long will it take to turn all people into zombies? Return -1 if can not turn all people into zombies.
 Example
@@ -762,7 +780,10 @@ Longest consecutive sequence path is 3-4-5, so return 3.
  1
 Longest consecutive sequence path is 2-3,not3-2-1, so return 2.
 
-
+Subtree
+You have two every large binary trees: T1, with millions of nodes, and T2, with hundreds of nodes. Create an algorithm to decide if T2 is a subtree of T1.
+Notice:
+A tree T2 is a subtree of T1 if there exists a node n in T1 such that the subtree of n is identical to T2. That is, if you cut off the tree at node n, the two trees would be identical.
 *******************************************************
 **               Topic 8: Data Structure             **
 *******************************************************
