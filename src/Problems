@@ -256,35 +256,6 @@ solution2(不可行): 2bfs not working， 主要因为TreeNode是单向的，第
 
 104.Maximum Depth of Binary Tree
 
-235.Lowest Common Ancestor of a Binary Search Tree
-Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
-According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
-        _______6______
-       /              \
-    ___2__          ___8__
-   /      \        /      \
-   0      _4       7       9
-         /  \
-         3   5
-For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another example is LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
-
-236.Lowest Common Ancestor of a Binary Tree
-Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
-According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
-        _______3______
-       /              \
-    ___5__          ___1__
-   /      \        /      \
-   6      _2       0       8
-         /  \
-         7   4
-For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another example is LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
-解法：借用ListNode的LC160的想法，先构建parent信息，对应得存入HashMap,然后将p的各级parent提取出存在HashSet
-里，然后逐个提取q的parent信息，和p的parent集比较，找出一样的
-
-Lowest Common Ancestor 
-Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.
-The lowest common ancestor is the node with largest depth which is the ancestor of both nodes.
 
 Partition Array
 Given an array nums of integers and an int k, partition the array (i.e move the elements in "nums") such that:
@@ -752,6 +723,48 @@ Given A=[1,2,3] and B=[4,5], the median is 3.
 Given a binary tree, determine if it is height-balanced.
 For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
 思路：用ResultType类方便
+
+235.Lowest Common Ancestor of a Binary Search Tree
+Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
+        _______6______
+       /              \
+    ___2__          ___8__
+   /      \        /      \
+   0      _4       7       9
+         /  \
+         3   5
+For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another example is LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
+
+236.Lowest Common Ancestor of a Binary Tree
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
+        _______3______
+       /              \
+    ___5__          ___1__
+   /      \        /      \
+   6      _2       0       8
+         /  \
+         7   4
+For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another example is LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+解法：借用ListNode的LC160的想法，先构建parent信息，对应得存入HashMap,然后将p的各级parent提取出存在HashSet
+里，然后逐个提取q的parent信息，和p的parent集比较，找出一样的
+
+Lowest Common Ancestor 
+Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.
+The lowest common ancestor is the node with largest depth which is the ancestor of both nodes.
+
+Lowest Common Ancestor II 
+Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.
+The lowest common ancestor is the node with largest depth which is the ancestor of both nodes.
+The node has an extra attribute parent which point to the father of itself. The root's parent is null.
+
+Lowest Common Ancestor III
+Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.
+The lowest common ancestor is the node with largest depth which is the ancestor of both nodes.
+Return null if LCA does not exist.
+Notice
+node A or node B may not exist in tree.
 
 Subtree with Maximum Average
 Given a binary tree, find the subtree with maximum average. Return the root of the subtree.
