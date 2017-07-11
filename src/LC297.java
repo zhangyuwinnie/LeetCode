@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class LC297 {
 	/**
@@ -8,43 +10,50 @@ public class LC297 {
      */
     public String serialize(TreeNode root) {
         // special case
-    		if (root == null){
-    			return "{}";
-    		}
-    	
-    		// bfs -> arraylist
-    		ArrayList<TreeNode> queue = new ArrayList<>();
-    		queue.add(root);
-    		
-    		// loop for bfs
-    		for (int i = 0; i < queue.size(); i++){
-    			TreeNode node = queue.get(i);
-    			// different from classic bfs, 第一次的null要放进去,第二次的不妨
-    			if (node != null){
-    			    queue.add(node.left);
-    			    queue.add(node.right);
-    			}
-    			
-    		}
-    		
-    		while (queue.get(queue.size()-1) == null){
-    			queue.remove(queue.size() -1);
-    		}
-    		
-    		// convert to string
-    		StringBuffer sb = new StringBuffer();
-    		sb.append("{");
-    		sb.append(queue.get(0).val);
-    		for (int i = 1; i < queue.size(); i++){ // !!!start 要从1开始
-    			if (queue.get(i) == null){
-    				sb.append(",#");
-    			} else {
-    				sb.append(",");
-    				sb.append(queue.get(i).val);
-    			}
-    		}
-    		sb.append("}");
-    		return sb.toString();	
+        if (root == null){
+            return "{}";
+        }
+        //bfs get list of nodes in level order traverse
+        ArrayList<TreeNode> nodes = new ArrayList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        nodes.add(root);
+        q.offer(root);
+        while (!q.isEmpty()){
+            TreeNode curt = q.poll();
+            if (curt.left != null){
+                q.offer(curt.left);
+                nodes.add(curt.left); 
+            } else {
+                nodes.add(null);//!!!null也要放进去
+            }
+            if (curt.right != null){
+                q.offer(curt.right);
+                nodes.add(curt.right); 
+            } else {
+                nodes.add(null);
+            }
+        }
+        // remove null at last
+        while (nodes.get(nodes.size() - 1) == null){
+            nodes.remove(nodes.size() - 1);
+        }
+        // convert list of nodes to string
+        StringBuffer result = new StringBuffer();
+        int size = nodes.size();
+        result.append("{");
+        for (int i = 0; i < size; i++){
+            if (nodes.get(i) != null){
+                result.append(nodes.get(i).val);
+            } else {
+                result.append("#");
+            }
+            if (i != size - 1){
+                result.append(",");
+            }
+        }
+        result.append("}");
+        return result.toString();
+        
     }
     
     /**
@@ -56,38 +65,41 @@ public class LC297 {
      */
     public TreeNode deserialize(String data) {
         // special case
-    		if (data.equals("{}")){
-    			return null;
-    		}
-    		// parse data
-    		String[] vals = data.substring(1, data.length() - 1).split(",");
-    		// queue
-    		ArrayList<TreeNode> queue = new ArrayList<>();
-    		// root
-    		TreeNode root = new TreeNode(Integer.parseInt(vals[0]));
-    		queue.add(root);
-    		
-    		int index = 0; // 跟踪当前要被加children的母节点
-    		boolean isLeftChild = true; // 帮助母节点的跟踪，true，false一组，满一组index加1
-    		
-    		
-    		for (int i = 1; i < vals.length; i++){ // 要从1开始了
-    			// if "#", just skip, index, isLeftChild正常
-    			if(!vals[i].equals("#")){
-    			    //System.out.println(vals[i]);
-    				TreeNode node = new TreeNode(Integer.parseInt(vals[i]));
-    				queue.add(node);
-    				if (isLeftChild){
-    					queue.get(index).left = node;
-    				} else {
-    					queue.get(index).right = node;
-    				}
-    			}
-    			if (!isLeftChild){
-    				index++;
-    			}
-    			isLeftChild = !isLeftChild;
-    		}
-    		return root;
+        if (data == "{}"){
+            return null;
+        }
+        // convert string to arrayList
+        ArrayList<TreeNode> nodes = new ArrayList<>();
+        String middle = data.substring(1, data.length() - 1);//!!!
+        String[] values = middle.split(",");
+        for (String value : values){
+            if (!value.equals("#")){
+                // System.out.println(value+" "+Integer.parseInt(value));
+                nodes.add(new TreeNode(Integer.parseInt(value)));
+            } else {
+                nodes.add(null);
+            }
+        }
+        // System.out.println(nodes.size());
+        // loop list construct the tree
+        int index = 0; // keep track of root
+        for (int i = 1; i < nodes.size(); i++){//从1开始
+            TreeNode root = nodes.get(index);
+            if (i % 2 == 1){//叶子成对出现，用奇偶判断左右节点
+                // System.out.println(root.val);
+                root.left = nodes.get(i);
+            } else {
+                root.right = nodes.get(i);// 每轮完右节点，root指针前进一个
+                index++;
+                while (nodes.get(index) == null){//!!!Bug:root轮到null要跳过
+                    index++;
+                }
+            }
+        }
+        return nodes.get(0);
     }
 }
+//NOte
+//serialize: 结构化到string，用bfs，注意null的保留
+//deserialize：string到结构，得到array of nodes，loop through it, 将后面的node慢慢挂到前面的root上构建成树，
+//用一个指针跟踪root位置，用位置的奇偶性判断左右节点
