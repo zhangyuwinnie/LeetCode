@@ -62,3 +62,11 @@ public class GraphValidTree {
         return graph;
     }
 }
+//Note:
+//Valid graph:
+//边数=定点数-1；
+//所有点联通 (从0开始BFS得到所有点)
+//hash
+
+//test case: 1,[] 
+//return false; Bug 在18-19
