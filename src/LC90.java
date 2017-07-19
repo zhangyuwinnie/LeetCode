@@ -15,7 +15,7 @@ public class LC90 {
 	public void dfs(int[] nums, int start, List<Integer> curr, List<List<Integer>> result){
 		result.add(new ArrayList<Integer>(curr));//!!!不能直接add(curr)
 		for (int i=start; i<nums.length; i++){
-			if (i!=0 &&i>start && nums[i] ==nums[i-1]) {// 去重，只取相同数中第一个作为下一个
+			if (i - 1 >= 0 && i>start && nums[i] == nums[i-1]) {// 去重，只取相同数中第一个作为下一个
 				continue;	
 			}
 			curr.add(nums[i]);

@@ -40,8 +40,8 @@ public class LC78 {
         // 通过curr.remove回到root，再走别的分叉
         for (int i = start; i<nums.length; i++){
         		curr.add(nums[i]);
-        		dfs(nums, curr, i+1, result); // !!!这里的position变量应该是i+1,而不是start+1
-        		curr.remove(curr.size()-1);
+        		dfs(nums, curr, i+1, result); // !!!这里的position变量应该是i+1,而不是start+1,也不是i
+        		curr.remove(curr.size()-1);// 回溯的体现，加一个要减一个
         }
         
     }
