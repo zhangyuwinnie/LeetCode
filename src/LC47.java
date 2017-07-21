@@ -35,7 +35,7 @@ public class LC47 {
             curr.add(nums[i]);
             dfs(result, curr, nums, visited);
             curr.remove(curr.size()-1);
-            visited[i] = 0;
+            visited[i] = 0; //!!!!回溯
         }
     }    
 
