@@ -582,99 +582,6 @@ Given n = 3, your program should return all 5 unique BST's shown below.
     /     /       \                 \
    2     1         2                 3
 思路：这题不是DP只是单纯recursive，输入为start，end，每个i作为root，左边是（start，i-1)，右边是（i+1,end）
-####################### DFS ######################
-
-320. Generalized Abbreviation
-Write a function to generate the generalized abbreviations of a word.
-Example: Given word = "word", return the following list (order does not matter):
-["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", >"1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
-思路：DFS/backtracking
-解法一：分为3部分，字符开头(0-len)+数字段(1-end)+subproblem(要注意单拎出来第一个字符，可以防止联系两个数字连在一起)
-解法二：每个pos分为保留不保留两种处理，然后pos+1，处理到结尾，输出结果
-
-78. Subsets I
-Given a set of distinct integers, nums, return all possible subsets.
-Note: The solution set must not contain duplicate subsets.
-解法一：recursive法，n个元素的结果为n-1个元素的结果加上((n-1)个元素结果+第n个元素)
-解法二：DFS
-
-90. Subsets II
-Given a collection of integers that might contain duplicates, nums, return all possible subsets.
-Note: The solution set must not contain duplicate subsets.
-思路：主要要注意去重，只取相同数中第一个作为下一个
-
-46. Permutations
-Given a collection of distinct numbers, return all possible permutations.
-For example,
-[1,2,3] have the following permutations:
-[
-  [1,2,3],
-  [1,3,2],
-  [2,1,3],
-  [2,3,1],
-  [3,1,2],
-  [3,2,1]
-]
-思路： 类似subset，但要注意加curr时加个判断，而且要return，curr add时也要加判断
-draft:
-[1,2]
-dfs([],[],[1,2])
-    i = 0
-        curr = [1]
-        dfs([],[1],[1,2])
-            i =0
-                \\ dfs([],[1],[1,2])
-
-            i=1
-                curr = [1,2]
-                dfs([],[1,2],[1,2])
-                    result = [[1,2]]
-                curr = [1]
-
-        curr = []
-    i=1
-        curr = [2]
-
-47. Permutations II
-Given a collection of numbers that might contain duplicates, return all possible unique permutations.
-For example,
-[1,1,2] have the following unique permutations:
-[
-  [1,1,2],
-  [1,2,1],
-  [2,1,1]
-]
-
-39. Combination Sum
-Given a set of candidate numbers (C) (without duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
-The same repeated number may be chosen from C unlimited number of times.
-Note:
-All numbers (including target) will be positive integers.
-The solution set must not contain duplicate combinations.
-For example, given candidate set [2, 3, 6, 7] and target 7, 
-A solution set is: 
-[
-  [7],
-  [2, 2, 3]
-] 
-思路：DFS，类似suset,不同点在于1）元素可以重复（选数的时候，下一个还是从i开始，而不是i+1）
-2）有target限制 3）一开始input可能就有重复（所以需要提前sort并remove duplicates）
-
-40. Combination Sum II
-Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
-Each number in C may only be used once in the combination.
-Note:
-All numbers (including target) will be positive integers.
-The solution set must not contain duplicate combinations.
-For example, given candidate set [10, 1, 2, 7, 6, 1, 5] and target 8, 
-A solution set is: 
-[
-  [1, 7],
-  [1, 2, 5],
-  [2, 6],
-  [1, 1, 6]
-]
-
 
 *******************************************************
 **               Topic 2: Binary Search              **
@@ -810,7 +717,7 @@ Both the left and right subtrees must also be binary search trees.
 A single node tree is a BST
 
 *******************************************************
-**               Topic 8: BFS             **
+**               Topic 4: BFS             **
 *******************************************************
 Course Schedule
 There are a total of n courses you have to take, labeled from 0 to n - 1.
@@ -854,6 +761,112 @@ Return true
 Knight Shortest Path
 Given a knight in a chessboard (a binary matrix with 0 as empty and 1 as barrier) with a source position, find the shortest path to a destination position, return the length of the route. 
 Return -1 if knight can not reached. 
+
+*******************************************************
+**                   Topic 5: DFS                    **
+*******************************************************
+320. Generalized Abbreviation
+Write a function to generate the generalized abbreviations of a word.
+Example: Given word = "word", return the following list (order does not matter):
+["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", >"1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
+思路：DFS/backtracking
+解法一：分为3部分，字符开头(0-len)+数字段(1-end)+subproblem(要注意单拎出来第一个字符，可以防止联系两个数字连在一起)
+解法二：每个pos分为保留不保留两种处理，然后pos+1，处理到结尾，输出结果
+
+78. Subsets I
+Given a set of distinct integers, nums, return all possible subsets.
+Note: The solution set must not contain duplicate subsets.
+解法一：recursive法，n个元素的结果为n-1个元素的结果加上((n-1)个元素结果+第n个元素)
+解法二：DFS
+
+90. Subsets II
+Given a collection of integers that might contain duplicates, nums, return all possible subsets.
+Note: The solution set must not contain duplicate subsets.
+思路：主要要注意去重，只取相同数中第一个作为下一个
+
+46. Permutations
+Given a collection of distinct numbers, return all possible permutations.
+For example,
+[1,2,3] have the following permutations:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
+思路： 类似subset，但要注意加curr时加个判断，而且要return，curr add时也要加判断
+draft:
+[1,2]
+dfs([],[],[1,2])
+    i = 0
+        curr = [1]
+        dfs([],[1],[1,2])
+            i =0
+                \\ dfs([],[1],[1,2])
+
+            i=1
+                curr = [1,2]
+                dfs([],[1,2],[1,2])
+                    result = [[1,2]]
+                curr = [1]
+
+        curr = []
+    i=1
+        curr = [2]
+
+47. Permutations II
+Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+For example,
+[1,1,2] have the following unique permutations:
+[
+  [1,1,2],
+  [1,2,1],
+  [2,1,1]
+]
+
+39. Combination Sum
+Given a set of candidate numbers (C) (without duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+The same repeated number may be chosen from C unlimited number of times.
+Note:
+All numbers (including target) will be positive integers.
+The solution set must not contain duplicate combinations.
+For example, given candidate set [2, 3, 6, 7] and target 7, 
+A solution set is: 
+[
+  [7],
+  [2, 2, 3]
+] 
+思路：DFS，类似suset,不同点在于1）元素可以重复（选数的时候，下一个还是从i开始，而不是i+1）
+2）有target限制 3）一开始input可能就有重复（所以需要提前sort并remove duplicates）
+
+40. Combination Sum II
+Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+Each number in C may only be used once in the combination.
+Note:
+All numbers (including target) will be positive integers.
+The solution set must not contain duplicate combinations.
+For example, given candidate set [10, 1, 2, 7, 6, 1, 5] and target 8, 
+A solution set is: 
+[
+  [1, 7],
+  [1, 2, 5],
+  [2, 6],
+  [1, 1, 6]
+]
+
+Palindrome Partitioning
+Given a string s, partition s such that every substring of the partition is a palindrome.
+Return all possible palindrome partitioning of s.
+Example:
+Given s = "aab", return:
+[
+  ["aa","b"],
+  ["a","a","b"]
+]
+
+
 *******************************************************
 **               Topic 8: Data Structure             **
 *******************************************************
